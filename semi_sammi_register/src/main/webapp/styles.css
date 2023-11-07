@@ -1,0 +1,75 @@
+
+h1{
+    color:white;
+    background:linear-gradient(#6190E8,#A7BFE8);
+    padding:30px;
+    text-align: center;
+}
+
+
+label{
+    margin-left:200px;
+    color:black;
+
+}
+
+#d1 {
+    margin-top: 200px;
+    margin-left:570px;
+}
+
+#d2 {
+    margin-top:20px;
+    margin-left:554px;
+}
+
+#d3 {
+    margin-top:20px;
+    margin-left:517px;
+}
+
+#d4 {
+    margin-top:20px; 
+    margin-left:554px;
+}
+
+#d5 {
+    margin-top:20px;
+    margin-left:570px;
+}
+
+
+#d6 {
+    margin-top:20px;
+    margin-left:586px;
+}
+
+#d7 {
+    margin-top:20px;
+    margin-left:880px;
+}
+
+#createButton{
+    padding:10px;
+    border-radius: 5px;
+    border:1px solid;
+    box-shadow: 10px;
+    background:linear-gradient(45deg,violet,skyblue);
+    cursor : pointer;
+    /*그림자 추가*/
+    box-shadow : 2px 2px 5px rgba(0,0,0, 0.3);
+    /*마우스 가져갈 시 색상 반짝이는 효과 추가*/
+    transition: background-color 0.3s,box-shadow 0.3s;
+}
+
+#createButton:hover {
+    background-color: #f6f6f6;
+    box-shadow : 10px 10px 5px rgba(14, 14, 15, 0.45);
+}
+
+#checkButton{
+    border: 1px solid;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor :pointer;
+}

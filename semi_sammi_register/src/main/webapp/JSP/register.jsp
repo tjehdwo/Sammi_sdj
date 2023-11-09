@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 사이트</title>
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="../CSS/styles.css">
 </head>
 <body>
 <h1>회원가입</h1>
@@ -14,7 +14,7 @@
         
             <div id="d1">
                 <label for="ID">아이디 : </label>
-                <input type="text" placeholder="아이디를 입력하세요." id="ID" name="ID" required><input type="button" value="중복체크" id="checkButton"><br>
+                <input type="text" placeholder="아이디를 입력하세요." id="ID" name="ID" required><input type="button" value="중복 체크" onclick="idCheck()" id="checkButton">
             </div>
             <div id="d2">
                 <label for="PASSWORD">비밀번호 : </label>
@@ -37,11 +37,20 @@
                 <input type="text" placeholder="주소를 입력하세요." id="ADDRESS" name="ADDRESS" required><br>
             </div>
             <div id="d7">    
-                <input type="button" value="가입하기" id="createButton">
+                <button type="button" id="createButton" onclick="location.href='Main.jsp'">가입하기</button>
             </div>
           
     </form>
 </div>
 
+<script>
+	function idCheck(){
+		if()
+		
+		
+	}
+		
+	
+</script>
 </body>
 </html>

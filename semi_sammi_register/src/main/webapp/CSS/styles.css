@@ -73,3 +73,28 @@ label{
     border-radius: 5px;
     cursor :pointer;
 }
+
+#deleteButton{
+	margin-left:900px;
+	cursor:pointer;
+}
+
+.img-container{
+    display: flex;  /*이미지 가로로 나열하기*/
+    flex-wrap: wrap;   /*가로로 공간이 부족할경우 다음줄로 넘기기*/
+    justify-content: center; /*가로방향으로 중앙 정렬 이미지들이 수평 가운데 정렬*/
+}
+.image {
+    width:400px;
+    height:400px;
+    margin: 10px;
+}
+
+#prevPage{
+	margin-left:300px;
+	
+}
+
+#nextPage{
+	margin-left:300px;
+}

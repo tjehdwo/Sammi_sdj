@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+
+@WebServlet("/DeleteUserServlet")
+public class DeleteUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
@@ -25,43 +26,32 @@ public class LoginServlet extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		
-		
 		String id = request.getParameter("ID");
 		String password = request.getParameter("PASSWORD");
 		
-		//로그인 SELECT
-		String sql = "SELECT USER_ID,ID,ADDRESS FROM USERINFO WHERE ID = ? AND PASSWORD =?";
-		
+		//회원탈퇴 DELETE
+		String sql = "DELETE FROM USERINFO WHERE ID = ? AND PASSWORD =?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, id);
 		preparedStatement.setString(2, password);
 		
-		ResultSet result = preparedStatement.executeQuery();
+		preparedStatement.executeUpdate();
 		
-		int user_id = result.getInt("USER_ID");
-		String address = result.getString("ADDRESS");
+		//성공시 로그인 화면으로 이동
+		response.sendRedirect("login.jsp");
 		
-		request.getSession().setAttribute("USER_ID",user_id);
-		request.getSession().setAttribute("ADDRESS",address);
-		request.getSession().setAttribute("ID", id);
-		request.getSession().setAttribute("PASSWORD", password);
-		
-		//성공할 경우 이동할 페이지 설정후 전송
-		response.sendRedirect("login_success.jsp");
 		
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			response.sendRedirect("logun_error.jsp");
 			e.printStackTrace();
 		}
 		
-				
 	}
-	
+
 }

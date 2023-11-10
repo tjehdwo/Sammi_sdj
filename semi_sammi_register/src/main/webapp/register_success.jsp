@@ -14,5 +14,12 @@
 <p> 전화번호 : <%= session.getAttribute("PHONE_NUMBER") %></p>
 <p> 이메일 : <%= session.getAttribute("EMAIL") %></p>
 <p> 주소 : <%= session.getAttribute("ADDRESS") %></p>
+<script>
+	//3초 후 홈페이지로 이동하는 javascript
+	setTimeout(function() {
+		//이동할 페이지 경로 설정
+		window.location.href="Main.jsp";
+	}, 5000); //5000 = 5초
+</script>
 </body>
 </html>

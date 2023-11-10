@@ -1,9 +1,9 @@
 const images = [
-    '../img/cute1.jpg',
-    '../img/cute2.jpg',
-    '../img/cute3.jpg',
-    '../img/cute4.jpg',
-    '../img/cute5.jpg',
+    './img/cute1.jpg',
+    './img/cute2.jpg',
+    './img/cute3.jpg',
+    './img/cute4.jpg',
+    './img/cute5.jpg',
 ];
 const imagesPerpage = 3; //한 페이지에 표시될 이미지 수
 let currentPage = 0; //현재 페이지를 나타내는 변수, 초기값 0으로 설정하여 첫 번째 페이지를 표시함

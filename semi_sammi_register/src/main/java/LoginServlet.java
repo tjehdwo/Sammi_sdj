@@ -12,12 +12,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		
 		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
 		String jdbcUsername ="sm";
 		String jdbcPassword ="sm1234";
@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("PASSWORD");
 		
 		//로그인 SELECT
-		String sql = "SELECT USER_ID,ID,ADDRESS FROM USERINFO WHERE ID = ? AND PASSWORD =?";
+		String sql = "SELECT * FROM USERINFO WHERE ID = ? AND PASSWORD =?";
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, id);
@@ -44,20 +44,22 @@ public class LoginServlet extends HttpServlet {
 		
 		ResultSet result = preparedStatement.executeQuery();
 		
-		int user_id = result.getInt("USER_ID");
-		String address = result.getString("ADDRESS");
+		if(result.next()) {
+			HttpSession session = request.getSession();
+			session.setAttribute("ID",result.getString("ID"));
+			session.setAttribute("PASSWORD",result.getString("PASSWORD"));
+			session.setAttribute("ADDRESS",result.getString("ADDRESS"));
+			
+			response.sendRedirect("Main.jsp");
+		}else {
+			request.setAttribute("loginError","true");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
 		
-		request.getSession().setAttribute("USER_ID",user_id);
-		request.getSession().setAttribute("ADDRESS",address);
-		request.getSession().setAttribute("ID", id);
-		request.getSession().setAttribute("PASSWORD", password);
-		
-		//성공할 경우 이동할 페이지 설정후 전송
-		response.sendRedirect("login_success.jsp");
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			response.sendRedirect("logun_error.jsp");
+			response.sendRedirect("login.jsp");
 			e.printStackTrace();
 		}
 		

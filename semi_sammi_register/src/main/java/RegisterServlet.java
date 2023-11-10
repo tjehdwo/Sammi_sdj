@@ -50,15 +50,17 @@ public class RegisterServlet extends HttpServlet {
 			
 			
 			//회원가입 insert
-			String sql = "INSERT INTO USERINFO (ID,PASSWORD,PHONE_NUMBER,Email,ADDRESS) VALUES (?,?,?,?,?)";
+			String sql = "INSERT INTO USERINFO (USER_ID,ID,PASSWORD,PHONE_NUMBER,Email,ADDRESS) VALUES (USERINFO_SEQ.NEXTVAL,?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, id);
 			preparedStatement.setString(2, password);
-			preparedStatement.setString(4,phoneNumber);
-			preparedStatement.setString(5,email);
-			preparedStatement.setString(6,address);
+			preparedStatement.setString(3,phoneNumber);
+			preparedStatement.setString(4,email);
+			preparedStatement.setString(5,address);
 			
 			preparedStatement.executeUpdate();
+			
+			
 			
 			//가입 성공할 경우 회원 정보를 세션에 저장
 			/*세션 객체를 통해 클라이언트와 서버간에 전송할 데이터를 저장하고 공유하는 작업을 수행
@@ -79,7 +81,7 @@ public class RegisterServlet extends HttpServlet {
 			request.getSession().setAttribute("PHONE_NUMBER",phoneNumber);
 			request.getSession().setAttribute("EMAIL",email);
 			request.getSession().setAttribute("ADDRESS",address);
-			
+				
 			//성공할 경우 이동할 페이지 설정해주고 다시 전송
 			response.sendRedirect("register_success.jsp");
 		} catch (SQLException e) {

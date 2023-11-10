@@ -5,7 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>메인 홈페이지</title>
-<link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+<link rel="stylesheet" type="text/css" href="./CSS/styles.css">
 </head>
 <body>
 	<h1>메인 페이지입니다.</h1>
@@ -50,7 +50,7 @@
 	
 	
 	</div>
-<script src="../JS/Main.js">
+<script src="./JS/Main.js">
 
 </script>
 	

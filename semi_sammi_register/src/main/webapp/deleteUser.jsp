@@ -22,13 +22,14 @@
             </div>
             <br>
          	<div>
-                <input type="button" value="탈퇴하기" id="deleteButton" onclick="deleteUser()">
+                <input type="submit" value="탈퇴하기" id="deleteButton" onclick="deleteUser()">
             </div>
           
     </form>
 </div>
 <script>
 function deleteUser(){
+	
 	
 }
 	

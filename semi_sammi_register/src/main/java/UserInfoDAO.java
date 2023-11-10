@@ -19,36 +19,31 @@ public class UserInfoDAO {
 			e.printStackTrace();
 		}
 	}
-	public UserInfo getCheckId(String id,String password){
-		UserInfo userInfo = null;
+	public boolean getCheckId(String id){
+		
+		boolean using = false;
 		
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			String sql = "SELECT ID,PASSWORD FROM USERINFO WHERE ID = ? AND PASSWORD = ?";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, id);
-			ps.setString(2, password);
+			
 			
 			ResultSet resultSet = ps.executeQuery();
 			
-			while(resultSet.next()) {
-			int userId = resultSet.getInt("USER_ID");
-				id = resultSet.getString("ID");
-				password = resultSet.getString("PASSWORD");
-			String phoneNumber = resultSet.getString("PHONE_NUMBER");
-			String eMail = resultSet.getString("EMAIL");
-			String address = resultSet.getString("ADDRESS");
-				
-				userInfo = new UserInfo(userId,id,password,phoneNumber,eMail,address);
+			if(resultSet.next()==true) {
+				using = false;
 			
-			/*	request.setAttribute("",userInfo);
-				request.getRequestDispatcher("/register.jsp").forward(request, response);*/
+			}else if(resultSet.next()==false){
+				using = true;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return userInfo;
+		return using;
 	}
+	
 
 }

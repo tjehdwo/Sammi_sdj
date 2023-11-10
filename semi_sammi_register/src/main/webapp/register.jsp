@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "UserInfoDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +10,15 @@
 </head>
 <body>
 <h1>회원가입</h1>
+<% UserInfoDAO userInfoDAO = new UserInfoDAO();
+   
+%>
 <div id="background">
-    
-       	  <form action="idCheckServlet" method="post">
-            <div id="d1">
-                <label for="ID">아이디 : </label>
-                <input type="text" placeholder="아이디를 입력하세요." id="ID" name="ID" required><input type="submit" value="중복 체크" id="checkButton">
-            </div>
-            </form>
           <form action="RegisterServlet" method="post">  
+             <div id="d1">
+                <label for="ID">아이디 : </label>
+                <input type="text" placeholder="아이디를 입력하세요." id="ID" name="ID" required><input type="submit" value="중복 체크" id="checkButton" onclick="">
+            </div>
             <div id="d2">
                 <label for="PASSWORD">비밀번호 : </label>
                 <input type="PASSWORD" placeholder="비밀번호를 입력하세요." id="PASSWORD" name="PASSWORD" required><br>

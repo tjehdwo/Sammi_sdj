@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 		String id = request.getParameter("ID");
 		String password = request.getParameter("PASSWORD");
 		
-		//�α��� SELECT
+		//·Î±×ÀÎ SELECT
 		String sql = "SELECT * FROM USERINFO WHERE ID = ? AND PASSWORD =?";
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -49,7 +49,9 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("ID",result.getString("ID"));
 			session.setAttribute("PASSWORD",result.getString("PASSWORD"));
 			session.setAttribute("ADDRESS",result.getString("ADDRESS"));
-			
+
+			// If 추가
+		 	// 입력한 id,pw 값이랑 db에 있는 값이랑 비교해서 맞다면 main
 			response.sendRedirect("Main.jsp");
 		}else {
 			request.setAttribute("loginError","true");

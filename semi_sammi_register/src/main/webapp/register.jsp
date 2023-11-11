@@ -44,13 +44,31 @@
                 <input type="text" placeholder="주소를 입력하세요." id="ADDRESS" name="ADDRESS" required><br>
             </div>
             <div id="d7">    
-                <button type="submit" >가입하기</button>
+                <button type="submit" onclick="createUser()">가입하기</button>
             </div>
          
     </form>
 </div>
 
 <script>
+function createUser () {
+
+	var userId = document.getElementById("ID");
+	var userPw = document.getElementById("PASSWORD");
+
+	if(userId.value === undefined || userId.value === "" || userId.value.length === 0 || $.trim(userId) === "") {
+      	alert('ID를 입력하세요');
+      	userId.focus();
+      	return false;
+   }
+
+       	if(userPw.value === undefined || userPw.value === "" || userPw.value.length === 0 || $.trim(userPw) === "") {
+      	alert('비밀번호를 입력하세요');
+      	userPw.focus();
+      	return false;
+   }
+}
+
 	
 
 </script>

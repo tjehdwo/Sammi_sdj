@@ -43,7 +43,11 @@
                 <input type="text" placeholder="주소를 입력하세요." id="ADDRESS" name="ADDRESS" required><br>
             </div>
             <div id="d7">    
+<<<<<<< HEAD
                 <button type="submit" onclick="createUser()" >가입하기</button>
+=======
+                <button type="submit" onclick="createUser()">가입하기</button>
+>>>>>>> 415de35a26f955997a62c37fad969f8c9c26c450
             </div>
          
     </form>
@@ -55,22 +59,33 @@ function createUser () {
 	var userId = document.getElementById("ID");
 	var userPw = document.getElementById("PASSWORD");
 
+<<<<<<< HEAD
 	if(userId.value === undefined || userId.value === "" || userId.value.length === 0 ) {
+=======
+	if(userId.value === undefined || userId.value === "" || userId.value.length === 0 || $.trim(userId) === "") {
+>>>>>>> 415de35a26f955997a62c37fad969f8c9c26c450
       	alert('ID를 입력하세요');
       	userId.focus();
       	return false;
    }
 
+<<<<<<< HEAD
        	if(userPw.value === undefined || userPw.value === "" || userPw.value.length === 0) {
+=======
+       	if(userPw.value === undefined || userPw.value === "" || userPw.value.length === 0 || $.trim(userPw) === "") {
+>>>>>>> 415de35a26f955997a62c37fad969f8c9c26c450
       	alert('비밀번호를 입력하세요');
       	userPw.focus();
       	return false;
    }
 }
 
+<<<<<<< HEAD
 function checkPW () {
 	var pw = document.getElementById("PASSWORD");
 	var pwCheck = document.getElementById("PWCHECK");
+=======
+>>>>>>> 415de35a26f955997a62c37fad969f8c9c26c450
 	
 	if(pw.value === pwCheck.value){
 		alert("비밀번호가 일치합니다.");

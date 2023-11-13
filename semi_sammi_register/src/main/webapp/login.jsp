@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
-<link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+
 </head>
 <body>
 <form action ="LoginServlet" method="post">
@@ -14,12 +14,10 @@
 	
 	<label for="PASSWORD">비밀번호 :</label>
 	<input type="password" id="PASSWORD" name="PASSWORD" placeholder="비밀번호를 입력하세요." required><br>
-	<input type="submit" value="로그인"> <input type="button" value="회원가입" onclick="createButton()">
+	<input type="submit" value="로그인"> <input type="button" value="회원가입">
 </form>
 <script>
-		function createButton(){
-			window.location.href="register.jsp";
-		}
+	
 </script>
 </body>
 </html>

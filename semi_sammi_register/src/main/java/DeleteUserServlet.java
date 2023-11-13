@@ -36,7 +36,7 @@ public class DeleteUserServlet extends HttpServlet {
 		String id = request.getParameter("ID");
 		String password = request.getParameter("PASSWORD");
 		
-		//회원탈퇴 DELETE
+		
 		String sql = "DELETE FROM USERINFO WHERE ID = ? AND PASSWORD =?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, id);
@@ -44,14 +44,11 @@ public class DeleteUserServlet extends HttpServlet {
 		
 		preparedStatement.executeUpdate();
 		
-		//성공시 로그인 화면으로 이동
-		response.sendRedirect("login.jsp");
 		
-		
+		response.sendRedirect("Delete_success.jsp");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 }

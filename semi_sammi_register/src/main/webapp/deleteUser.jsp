@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <body>
 <h1>회원탈퇴</h1>
 <div id="background">
-    <form action="DeletUserServlet" method="post">
+    <form action="DeleteUserServlet" method="post">
         
             <div id="d1">
                 <label for="ID">아이디 : </label>
@@ -22,17 +22,13 @@
             </div>
             <br>
          	<div>
-                <input type="submit" value="탈퇴하기" id="deleteButton" onclick="deleteUser()">
+                <input type="submit" value="탈퇴하기" id="deleteButton" >
             </div>
           
     </form>
 </div>
 <script>
-function deleteUser(){
-	
-	
-}
-	
+
 </script>
 
 </body>

@@ -121,7 +121,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 <!-- 한글 깨짐 방지를 위한 필터 설정 -->
-  <filter>
+   <filter>
     <filter-name>SetCharEncoding</filter-name>
     <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
       <init-param>
@@ -129,6 +129,10 @@
         <param-value>utf-8</param-value>
       </init-param>
   </filter>
+  <filter-mapping>
+    <filter-name>SetCharEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <!-- The JSP page compiler and execution servlet, which is the mechanism  -->
   <!-- used by Tomcat to support JSP pages.  Traditionally, this servlet    -->
   <!-- is mapped to the URL pattern "*.jsp".  This servlet supports the     -->

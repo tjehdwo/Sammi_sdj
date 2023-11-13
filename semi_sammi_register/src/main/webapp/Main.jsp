@@ -1,18 +1,55 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>∏ﬁ¿Œ »®∆‰¿Ã¡ˆ</title>
-<link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+<meta charset="UTF-8">
+<title>Î©îÏù∏ ÌôàÌéòÏù¥ÏßÄ</title>
+<link rel="stylesheet" type="text/css" href="./CSS/styles2.css">
 </head>
 <body>
-	<h1>∏ﬁ¿Œ ∆‰¿Ã¡ˆ¿‘¥œ¥Ÿ.</h1>
+	        <header>
+            <div class="use_list_box">
+                <div class="use_list">
+                    <p>
+                        <a href="Main.jsp" class="use_main" onclik>
+                            <span><img src="./img/Î°úÍ≥†.png" class="logo"></span>
+                        </a>
+                    </p>
+                  
+                    <ul class="use">
+                        <li>
+                        	  <%
+                        	  	
+								String id = (String)session.getAttribute("ID");
+								%>
+                          	   <%=id %>Îãò
+								 <button class="use_logout" title="Î°úÍ∑∏ÏïÑÏõÉ" onclik="main()">
+	                                <span><img src="./img/logout.png" class="logout"><br>LOGOUT</span>
+	                          	 </button>
+                          		
+								
+                        </li>
+                        <li>
+                            <a href="ÎßàÏù¥ÌéòÏù¥ÏßÄÎ°ú Ïù¥Îèô" class="use_mypage" title="ÎßàÏù¥ÌéòÏù¥ÏßÄ">
+                                <span><img src="./img/Ïú†Ï†Ä.png" class="user"><br>MY</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Ï∞ú Îß§Î¨º Ï°∞ÌöåÎ°ú Ïù¥Îèô" class="use_likelist" title="Ï∞úÎß§Î¨º">
+                                <span><img src="./img/Ï∞ú.png" class="like"><br>Ï∞ú</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            </header>
 	<div>
 		<div>
 		<form action="MainPageServlet" method="post">
-		<a href = "login.jsp">∑Œ±◊¿Œ</a>
+		
 		
 		
 		
@@ -28,15 +65,15 @@
 		
 		<div>
 		<form action="MainPageCenterServlet" method="post">
-		<h1>√ﬂ√µ∏≈π∞</h1>
+		<h1>Ï∂îÏ≤úÎß§Î¨º</h1>
         <div id="pagination">
-            <button id="prevPage">¿Ã¿¸</button>
+            <button id="prevPage">Ïù¥Ï†Ñ</button>
         </div>
             <div class="img-container">
-                <!--¿ÃπÃ¡ˆ∏¶ √ﬂ∞°«œ¥¬ ∞¯∞£-->
+                <!--Ïù¥ÎØ∏ÏßÄÎ•º Ï∂îÍ∞ÄÌïòÎäî Í≥µÍ∞Ñ-->
             </div>
         <div>
-            <button id="nextPage">¥Ÿ¿Ω</button>
+            <button id="nextPage">Îã§Ïùå</button>
         </div>
 		
 		
@@ -50,8 +87,10 @@
 	
 	
 	</div>
-<script src="./JS/Main.js">
-
+<script>
+ function main () {
+	 window.location.href="Main.jsp";
+ }
 </script>
 	
 </body>

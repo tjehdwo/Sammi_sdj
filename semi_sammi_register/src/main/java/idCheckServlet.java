@@ -18,6 +18,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/idCheckServlet")
 public class idCheckServlet extends HttpServlet {
 	
+	/**
+	 *
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
 		String jdbcUsername ="sm";
@@ -39,15 +42,13 @@ public class idCheckServlet extends HttpServlet {
 			
 			ResultSet result = preparedStatement.executeQuery();
 			
-			if(result.next()==true) {
-				
+			if(result.next()) {
+				HttpSession session = request.getSession();
+				session.setAttribute("ID", result.getString("ID"));
+				response.sendRedirect("register.jsp");
+			}else {
+				response.sendRedirect("register.jsp");
 			}
-			
-				
-				
-				
-			
-				
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

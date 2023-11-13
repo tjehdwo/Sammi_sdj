@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		// JDBC ºÒ·¯¿À±â
+		// JDBC ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
 		String jdbcUsername ="sm";
 		String jdbcPassword ="sm1234";
@@ -30,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			
-			//³Ö°íÀÚÇÏ´Â DB °ª ¼³Á¤
+			//ï¿½Ö°ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ DB ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			/*
 			 * CREATE TABLE USERINFO (
 			    USER_ID NUMBER(5) PRIMARY KEY,
@@ -49,7 +49,7 @@ public class RegisterServlet extends HttpServlet {
 			String address = request.getParameter("ADDRESS");
 			
 			
-			//È¸¿ø°¡ÀÔ insert
+			//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ insert
 			String sql = "INSERT INTO USERINFO (USER_ID,ID,PASSWORD,PHONE_NUMBER,Email,ADDRESS) VALUES (USERINFO_SEQ.NEXTVAL,?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, id);
@@ -61,31 +61,17 @@ public class RegisterServlet extends HttpServlet {
 			preparedStatement.executeUpdate();
 			
 			
-			
-			//°¡ÀÔ ¼º°øÇÒ °æ¿ì È¸¿ø Á¤º¸¸¦ ¼¼¼Ç¿¡ ÀúÀå
-			/*¼¼¼Ç °´Ã¼¸¦ ÅëÇØ Å¬¶óÀÌ¾ğÆ®¿Í ¼­¹ö°£¿¡ Àü¼ÛÇÒ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ°í °øÀ¯ÇÏ´Â ÀÛ¾÷À» ¼öÇà
-			session "mno"¶ó´Â ÀÌ¸§À¸·Î µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ¿ªÇÒ
-			
-			request : ÇöÀç Å¬¶óÀÌ¾ğÆ®ÀÇ ¿äÃ»¿¡ ´ëÇÑ Á¤º¸¸¦ Á¦°øÇÏ´Â ¿ªÇÒÀ» ÇÔ
-			
-			session ÀÌ¶õ ? À¥ÀÌ³ª ¾ÖÇÃ¸®ÄÉÀÌ¼Ç »óÅÂ¸¦ À¯ÁöÇÏ°í µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ±â À§ÇØ »ç¿ë
-			
-			getSession() : request¿¡¼­ ÇöÀç ¼¼¼ÇÀ» °¡Áö°í ¿È
-			
-			setAttribute("mno",mno) : ¼¼¼Ç¿¡ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ¸Ş¼­µå
-			"mno" µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ°í, "mno" º¯¼ö °ªÀÌ ÇØ´ç µ¥ÀÌÅÍ·Î ¼³Á¤µÇ°Ô ÇÔ
-			ÀÌ·¸°Ô ÀúÀåµÈ µ¥ÀÌÅÍ´Â ´Ù¸¥ ¼­ºí¸´ÀÌ³ª jsp ÆäÀÌÁö¿¡¼­ Á¢±Ù °¡´ÉÇÔ
-			*/
+		
 			request.getSession().setAttribute("ID",id);
 			request.getSession().setAttribute("PASSWORD",password);
 			request.getSession().setAttribute("PHONE_NUMBER",phoneNumber);
 			request.getSession().setAttribute("EMAIL",email);
 			request.getSession().setAttribute("ADDRESS",address);
 				
-			//¼º°øÇÒ °æ¿ì ÀÌµ¿ÇÒ ÆäÀÌÁö ¼³Á¤ÇØÁÖ°í ´Ù½Ã Àü¼Û
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			response.sendRedirect("register_success.jsp");
 		} catch (SQLException e) {
-			//½ÇÆĞÇÒ °æ¿ì ÀÌµ¿ÇÒ ÆäÀÌÁö ¼³Á¤
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			response.sendRedirect("register_error.jsp");
 			e.printStackTrace();
 		}

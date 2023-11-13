@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			response.sendRedirect("login.jsp");
+			
 			e.printStackTrace();
 		}
 		

@@ -1,7 +1,7 @@
  *{
  box-sizing: border-box;
  }
-
+	/*메인페이지*/
 			header {
 				height: 190px;
 				background: linear-gradient(to right, #6190E8, #A7BFE8);       
@@ -77,7 +77,27 @@
                 top: 4px;
                 width: 46px;
                 height: auto;
-                
-                
 
             }
+            
+           #mainPageCenter h1 {
+           		padding : 30px;
+            	text-align:center;
+            	background:linear-gradient(to right, #6190E8, #A7BFE8);
+            	color:white;
+            	height:100px;
+            
+            }
+            
+            
+            footer {
+            	text-align:center;
+            	float:bottom;
+            }
+            
+            /*로그인 페이지*/
+            #loginId {
+            	
+            }
+            
+            

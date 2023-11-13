@@ -19,14 +19,9 @@
                   
                     <ul class="use">
                         <li>
-                        	  <%
-                        	  	
-								String id = (String)session.getAttribute("ID");
-								%>
-                          	   <%=id %>님
-								 <button class="use_logout" title="로그아웃" onclik="main()">
+								 <a href="Main.jsp" class="use_logout" title="로그아웃" >
 	                                <span><img src="./img/logout.png" class="logout"><br>LOGOUT</span>
-	                          	 </button>
+	                          	 </a>
                           		
 								
                         </li>
@@ -63,7 +58,7 @@
 		</form>
 		</div>
 		
-		<div>
+		<div id="mainPageCenter">
 		<form action="MainPageCenterServlet" method="post">
 		<h1>추천매물</h1>
         <div id="pagination">
@@ -85,12 +80,12 @@
 		</form>
 		</div>
 	
-	
+	<footer>
+		<p>드루와방 메인페이지입니다.</p>
+	</footer>
 	</div>
-<script>
- function main () {
-	 window.location.href="Main.jsp";
- }
+<script src="./JS/Main.js">
+ 
 </script>
 	
 </body>

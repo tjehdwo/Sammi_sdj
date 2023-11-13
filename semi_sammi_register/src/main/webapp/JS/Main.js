@@ -89,3 +89,7 @@ nextButton.addEventListener('click',() => {
 
 displayImg(currentPage);
 updateButtons();
+
+function main () {
+	 window.location.href="Main.jsp";
+ }

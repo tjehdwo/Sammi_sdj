@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원탈퇴 사이트</title>
-<link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+<link rel="stylesheet" type="text/css" href="./CSS/styles2.css">
 </head>
 <body>
 <h1>회원탈퇴</h1>

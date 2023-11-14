@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.kh.sammi.RealEstateInfo" %>
+<%@ page import="com.kh.sammi.RealEstateInfoDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +12,8 @@
 <link rel="stylesheet" type="text/css" href="./CSS/styles2.css">
 </head>
 <body>
+
+
 	        <header>
             <div class="use_list_box">
                 <div class="use_list">
@@ -60,26 +66,40 @@
 		
 		<div id="mainPageCenter">
 		<form action="MainPageCenterServlet" method="post">
-		<h1>추천매물</h1>
-        <div id="pagination">
-            <button id="prevPage">이전</button>
-        </div>
-            <div class="img-container">
-                <!--이미지를 추가하는 공간-->
-            </div>
-        <div>
-            <button id="nextPage">다음</button>
-        </div>
+		<div id="main center">
 		
-		
-		
-		
-		
+		 <div>
+<%
+    RealEstateInfoDAO realEstateInfoDAO = new RealEstateInfoDAO();
+    List<RealEstateInfo> realEstateInfos = realEstateInfoDAO.getMainRealEstateInfos();
+    
+    for (RealEstateInfo r : realEstateInfos) {
+        String realName = r.getRealEstateName();
+        String realType = r.getRealEstateType();
+        String realCondition = r.getRealEstateCondition();
+        double realArea = r.getRealEstateArea();
+        int realMonthly = r.getRealEstateMonthly();
+        String realPhotos = r.getRealEstatePhotos();
+        String realAddress = r.getRealEstateAddress();
+        
+        // 매물 정보를 출력하는 코드 작성
+        %>
+        <h2><%= realName %></h2>
+        <p>유형: <%= realType %></p>
+        <p>상태: <%= realCondition %></p>
+        <p>면적: <%= realArea %> 제곱미터</p>
+        <p>월세: <%= realMonthly %> 만원</p>
+        <p>사진: <%= realPhotos %></p>
+        <p>주소: <%= realAddress %></p>
+        <% 
+    }
+%>
+</div>
 		
 		
 		</form>
 		</div>
-	
+	</div>
 	<footer>
 		<p>드루와방 메인페이지입니다.</p>
 	</footer>

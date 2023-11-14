@@ -1,3 +1,4 @@
+package com.kh.sammi;
 
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class MainPageCenterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		response.setContentType("text/html;charset=UTF-8");
-		// JDBC 불러오기
+		
 		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
 		String jdbcUsername ="sm";
 		String jdbcPassword ="sm1234";
@@ -42,6 +43,7 @@ public class MainPageCenterServlet extends HttpServlet {
 			REALESTATE_CONDITION
 			REALESTATE_AREA
 			REALESTATE_ADDRESS
+			REALESTATE_MONTHLY
 			*/
 			
 			int realId = Integer.parseInt(request.getParameter("REALESTATE_ID"));
@@ -50,14 +52,16 @@ public class MainPageCenterServlet extends HttpServlet {
 			String realCondition = request.getParameter("REALESTATE_CONDITION");
 			String realArea = request.getParameter("REALESTATE_AREA");
 			String realAddress = request.getParameter("REALESTATE_ADDRESS");
+			String realPhotos = request.getParameter("REALESTATE_PHOTOS");
+			String realMonthly = request.getParameter("REALESTATE_MONTHLY");
+		
+			String sql = "SELECT REALESTATE_ID,REALESTATE_NAME,REALESTATE_TYPE,REALESTATE_CONDITION,REALESTATE_AREA,REALESTATE_MONTHLY FROM REALESTATEINFO WHERE REALESTATE_ADDRESS LIKE '%?%'";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1,realAddress);
+			preparedStatement.executeQuery();
 			
-			String sql2 = "SELECT REALESTATE_ID,REALESTATE_NAME,REALESTATE_TYPE,REALESTATE_CONDITION,REALESTATE_AREA FROM REALESTATEINFO WHERE REALESTATE_ADDRESS LIKE '%?%'";
-			PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
-			preparedStatement2.setString(1,realAddress);
-			preparedStatement2.executeQuery();
 			
-			//성공시 (추천매물사이트 주소)
-			response.sendRedirect("");
+			response.sendRedirect("Main.jsp");
 			
 			
 		} catch (SQLException e) {

@@ -1,3 +1,4 @@
+package com.kh.sammi;
 
 public class UserInfo {
 	private int userId;

@@ -43,7 +43,7 @@
             </div>
 	
 	</header>
-	<section>
+	<section class="transparent-section">
 	<div id ="hDiv">
 <h1>회원가입</h1>
 	</div>
@@ -60,7 +60,7 @@
 	                <input type="PASSWORD" placeholder="비밀번호를 입력하세요." id="PASSWORD" name="PASSWORD" required><br>
 	            </div>
 	            	<div>
-	            	<p id="pm" style="color:red;"></p><br>
+	            	<p id="pm" style="color:brown;font-weight: bold;"></p><br>
 	            	</div>
 	            <div id="d2">
 	                <label for="PWCHECK">비밀번호 확인 : </label>

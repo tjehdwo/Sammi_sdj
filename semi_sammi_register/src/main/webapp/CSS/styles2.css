@@ -153,11 +153,11 @@
 				position: absolute;	
 				top: 50%;
 				left: 50%;
-				
 				transform: translate(-50%, -50%);
-				
-			
 			}
+			 .transparent-section {
+            background-color: rgba(89, 86, 86, 0.3);
+			 }
            
             
             #createButton {
@@ -186,9 +186,12 @@
             margin-left:95px;
             width:150px;
             text-align:center;
-            color:#4e1a03;
+            color:white;
             }
             
+            label {
+            color:white;
+            }
            
             
             
@@ -203,6 +206,8 @@
             
             /*회원가입 페이지*/
             
+            
+            
             #createBody {
              background-image: url('../img/dd.jpg');
 		     background-repeat: no-repeat;
@@ -210,8 +215,6 @@
 		     background-size: cover;
 		     height:100vh;
             }
-            
-          
             
             #checkButton{
             border:none;

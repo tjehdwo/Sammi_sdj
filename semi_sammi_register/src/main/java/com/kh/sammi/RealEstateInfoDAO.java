@@ -1,4 +1,5 @@
 package com.kh.sammi;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class RealEstateInfoDAO {
 	private static final String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -40,8 +42,12 @@ public class RealEstateInfoDAO {
 				String realConditon = resultSet.getString("REALESTATE_CONDITION");
 				double realArea = resultSet.getDouble("REALESTATE_AREA");
 				int realMonthly = resultSet.getInt("REALESTATE_MONTHLY");
-				String realPhotos = resultSet.getString("REALESTATE_PHOTOS");
 				realAddress = resultSet.getString("REALESTATE_ADDRESS");
+				
+				Blob realPhotos = resultSet.getBlob("REALESTATE_PHOTOS");
+				
+				byte[] imageData = realPhotos.getBytes(1,(int) realPhotos.length());
+				response.setContentType("image/png");
 				
 				RealEstateInfo realEstateInfo = new RealEstateInfo(realId,realName,realType,realConditon,realArea,realMonthly,realPhotos,realAddress);
 				realEstateInfos.add(realEstateInfo);

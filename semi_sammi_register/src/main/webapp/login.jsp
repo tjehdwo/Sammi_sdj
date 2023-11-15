@@ -43,7 +43,7 @@
             </div>
 	
 	</header>
-<section>	
+<section class="transparent-section">	
 <div>
 	<h1>로그인</h1>
 	<form action ="LoginServlet" method="post">

@@ -69,9 +69,10 @@
 		<div id="main center">
 		
 		 <div>
-<%
+<%	
+	String address = (String)session.getAttribute("ADDRESS");
     RealEstateInfoDAO realEstateInfoDAO = new RealEstateInfoDAO();
-    List<RealEstateInfo> realEstateInfos = realEstateInfoDAO.getMainRealEstateInfos();
+    List<RealEstateInfo> realEstateInfos = realEstateInfoDAO.getMainRealEstateInfos(address);
     
     for (RealEstateInfo r : realEstateInfos) {
         String realName = r.getRealEstateName();

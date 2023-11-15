@@ -139,7 +139,7 @@
             }
             
             #loginId {
-            margin-left:23px;
+            margin-left:39px;
            
             }
             
@@ -198,6 +198,7 @@
 		     background-repeat: no-repeat;
 		     background-position: center;
 		     background-size: cover;
+		     height:100vh;
             }
             
             /*회원가입 페이지*/
@@ -207,25 +208,81 @@
 		     background-repeat: no-repeat;
 		     background-position: center;
 		     background-size: cover;
+		     height:100vh;
             }
             
-            #ID {
-            margin-left:15px;
-            }
+          
             
             #checkButton{
+            border:none;
+            border-radius:5px;
+            margin-left:15px;
             margin-left:15px;
             font-size : 13px;
+            background:linear-gradient(45deg,violet,orange);
+            cursor:pointer;
             }
             
             #checkPwButton {
+            border:none;
+            border-radius:5px;
             margin-left:15px;
             font-size: 12px;
+            margin-right : 20px;
+            background:linear-gradient(45deg,violet,orange);
+            cursor:pointer;
             }
             
+            #createIdButton{
+            padding:5px;
+            border:none;
+            border-radius:5px;
+            background:linear-gradient(45deg,violet,orange);
+            cursor:pointer;
+            }
+            
+            #createIdButton:hover {
+        	background: linear-gradient(45deg,violet,pink);
+        	color:#4e1a03;
+        	box-shadow : 5px 5px 3px rgba(1, 1, 2, 0.5);
+   			}	
+            
+            #d0 {
+            margin-left:102px;
+            }
+            
+            #d1 {
+            margin-left:86px;
+            }
+			
+			#d2 {
+			margin-left:50px;
+			}
+            
+           	#d3 {
+           	margin-left:88px;
+           	}
+           	
+           	#d4 {
+           	margin-left:104px;
+           	}
+           	
+           	#d5 {
+           	margin-left:120px;
+           	}
+           	
+           	#d6 {
+            margin-top: 20px;
+		    margin-left: 200px;
+		    margin-bottom: 10px;
+           	}
+           	
+           	#hDiv {
+           	margin-left:50px;
+           	}
+            
             /*메인 페이지*/
-            
-	
-            
-           
+         
+           	
+           	
             

@@ -13,7 +13,7 @@
 	//3초 후 홈페이지로 이동하는 javascript
 	setTimeout(function() {
 		//이동할 페이지 경로 설정
-		window.location.href="login.jsp";
+		window.location.href="logout.jsp";
 	}, 5000); //3000 = 3초
 </script>
 </body>

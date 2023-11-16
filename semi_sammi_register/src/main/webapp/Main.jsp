@@ -54,7 +54,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="" class="use_likelist" title="찜매물">
+						<a href="deleteUser.jsp" class="use_likelist" title="찜매물">
 							<span><img src="./img/찜.png" class="like"><br>찜</span>
 						</a>
 					</li>

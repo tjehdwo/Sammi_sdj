@@ -3,9 +3,12 @@
  }
 	/*메인페이지*/
 			header {
-				width:100%;
-				height: 190px;
-				background: linear-gradient(to right, #6190E8, #A7BFE8);       
+		    position: relative;
+		    width: 100%;
+		    bottom: 16px;
+		    height: 200px;
+		    background: linear-gradient(to right, #6190E8, #A7BFE8);
+		  
 			}
 	
 			.use_list p {
@@ -79,15 +82,6 @@
                 width: 46px;
                 height: auto;
 
-            }
-            
-           #mainPageCenter h1 {
-           		padding : 30px;
-            	text-align:center;
-            	background:white;
-            	color:black;
-            	height:100px;
-            
             }
             
             
@@ -209,83 +203,168 @@
             
             
             #createBody {
-             background-image: url('../img/dd.jpg');
-		     background-repeat: no-repeat;
-		     background-position: center;
-		     background-size: cover;
-		     height:100vh;
+	             background-image: url('../img/dd.jpg');
+			     background-repeat: no-repeat;
+			     background-position: center;
+			     background-size: cover;
+			     height:100vh;
             }
             
             #checkButton{
-            border:none;
-            border-radius:5px;
-            margin-left:15px;
-            margin-left:15px;
-            font-size : 13px;
-            background:linear-gradient(45deg,violet,orange);
-            cursor:pointer;
+	            border:none;
+	            border-radius:5px;
+	            margin-left:15px;
+	            margin-left:15px;
+	            font-size : 13px;
+	            background:linear-gradient(45deg,violet,orange);
+	            cursor:pointer;
             }
             
             #checkPwButton {
-            border:none;
-            border-radius:5px;
-            margin-left:15px;
-            font-size: 12px;
-            margin-right : 20px;
-            background:linear-gradient(45deg,violet,orange);
-            cursor:pointer;
+	            border:none;
+	            border-radius:5px;
+	            margin-left:15px;
+	            font-size: 12px;
+	            margin-right : 20px;
+	            background:linear-gradient(45deg,violet,orange);
+	            cursor:pointer;
             }
             
             #createIdButton{
-            padding:5px;
-            border:none;
-            border-radius:5px;
-            background:linear-gradient(45deg,violet,orange);
-            cursor:pointer;
+	            padding:5px;
+	            border:none;
+	            border-radius:5px;
+	            background:linear-gradient(45deg,violet,orange);
+	            cursor:pointer;
             }
             
             #createIdButton:hover {
-        	background: linear-gradient(45deg,violet,pink);
-        	color:#4e1a03;
-        	box-shadow : 5px 5px 3px rgba(1, 1, 2, 0.5);
+	        	background: linear-gradient(45deg,violet,pink);
+	        	color:#4e1a03;
+	        	box-shadow : 5px 5px 3px rgba(1, 1, 2, 0.5);
    			}	
             
             #d0 {
-            margin-left:102px;
+            	margin-left:102px;
             }
             
             #d1 {
-            margin-left:86px;
+            	margin-left:86px;
             }
 			
 			#d2 {
-			margin-left:50px;
+				margin-left:50px;
 			}
             
            	#d3 {
-           	margin-left:88px;
+           		margin-left:88px;
            	}
            	
            	#d4 {
-           	margin-left:104px;
+           		margin-left:104px;
            	}
            	
            	#d5 {
-           	margin-left:120px;
+           		margin-left:120px;
            	}
            	
            	#d6 {
-            margin-top: 20px;
-		    margin-left: 200px;
-		    margin-bottom: 10px;
+	            margin-top: 20px;
+			    margin-left: 200px;
+			    margin-bottom: 10px;
            	}
            	
            	#hDiv {
-           	margin-left:50px;
+           		margin-left:50px;
            	}
             
             /*메인 페이지*/
+            
+            #mainBody {
+            background-image: url('../img/build.jpg');
+			     background-repeat: no-repeat;
+			     background-position: center;
+			     background-size: cover;
+			     height:100vh;
+            
+            }
+            
+            #mainDiv {
+   			background: beige;
+   			
+            
+            }
+            
+            #mainDiv{
+            background-color: rgba(89, 86, 86, 0.7);
+			}
+            
+            #hh {
+            margin-left : 700px;
+            text-align:center;
+            color:black;
+            width:500px;
+            background:white;
+            }
+            
+            #imageSize{
+            width:200px;
+            height:300px;
+            }
+            
+            
+            
+            
+            
+            /*회원탈퇴*/
+            #deleteBody {
+	             background-image: url('../img/delete.png');
+			     background-repeat: no-repeat;
+			     background-position: center;
+			     background-size: cover;
+			     height:100vh;
+            }
+            
+            #deleteId {
+            margin-left:46px;
+            margin-right:50px;
+            }
          
+         	#deletePw {
+         	margin-left:30px;
+         	margin-right:50px;
+         	}
+         	
+         	#deleteButton {
+         	border:none;
+         	border-radius:5px;
+         	padding:10px;
+         	margin-left :130px;
+			margin-bottom : 20px;
+			background:linear-gradient(45deg,orange,red);
+			color:white;
+			cursor:pointer;
+			
+         	}
+         	
+         	#deleteButton:hover {
+         	background: white;
+	        color:red;
+	        box-shadow : 5px 5px 3px rgba(1, 1, 2, 0.5);
+         	}
            	
+           	h2 {
+           	color:white;
+           	
+           	}
+           	
+           	a{
+           	color:white;
+           	}
+           	
+           	
+           	p {
+           	color:white;
+           	}
            	
             

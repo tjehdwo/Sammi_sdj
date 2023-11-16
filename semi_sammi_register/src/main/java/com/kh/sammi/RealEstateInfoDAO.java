@@ -44,12 +44,15 @@ public class RealEstateInfoDAO {
 				int realMonthly = resultSet.getInt("REALESTATE_MONTHLY");
 				realAddress = resultSet.getString("REALESTATE_ADDRESS");
 				
-				Blob realPhotos = resultSet.getBlob("REALESTATE_PHOTOS");
+//				Blob realPhotos = resultSet.getBlob("REALESTATE_PHOTOS");
+//				
+//				byte[] imageData = realPhotos.getBytes(1,(int) realPhotos.length());
+//				String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
+//				String encodedImage = "data:image/jpeg;base64, " + imageBase64;
+//				
 				
-				byte[] imageData = realPhotos.getBytes(1,(int) realPhotos.length());
-				response.setContentType("image/png");
-				
-				RealEstateInfo realEstateInfo = new RealEstateInfo(realId,realName,realType,realConditon,realArea,realMonthly,realPhotos,realAddress);
+				String encodedImage = "aa";
+				RealEstateInfo realEstateInfo = new RealEstateInfo(realId,realName,realType,realConditon,realArea,realMonthly,encodedImage,realAddress);
 				realEstateInfos.add(realEstateInfo);
 			}
 			

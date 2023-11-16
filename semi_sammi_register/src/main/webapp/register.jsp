@@ -10,38 +10,34 @@
 <body id="createBody">
 <div>
 <header>
-	<div class="use_list_box">
-                <div class="use_list">
-                    <p>
-                        <a href="Main.jsp" class="use_main" onclik>
-                            <span><img src="./img/로고.png" class="logo"></span>
-                        </a>
-                    </p>
-                  
-                    <ul class="use">
-                        <li>
-								 <a href="Main.jsp" class="use_logout" title="로그아웃" >
-	                                <span><img src="./img/logout.png" class="logout"><br>LOGOUT</span>
-	                          	 </a>
-                          		
-								
-                        </li>
-                        <li>
-                            <a href="MyPage.jsp" class="use_mypage" title="마이페이지">
-                                <span><img src="./img/유저.png" class="user"><br>MY</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="찜 매물 조회로 이동" class="use_likelist" title="찜매물">
-                                <span><img src="./img/찜.png" class="like"><br>찜</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-
-            </div>
-	
+<header>
+		<div class="use_list_box">
+			<div class="use_list">
+				<p>
+					<a href="Main.jsp" class="use_main" onclik>
+						<span><img src="./img/로고.png" class="logo"></span>
+					</a>
+				</p>
+				                  
+				<ul class="use">
+					<li>
+						<a href="Main.jsp" class="use_logout" title="로그아웃" >
+							<span><img src="./img/logout.png" class="logout"><br>LOGOUT</span>
+						</a>
+					</li>
+					<li>
+						<a href="MyPage.jsp" class="use_mypage" title="마이페이지">
+							<span><img src="./img/유저.png" class="user"><br>MY</span>
+						</a>
+					</li>
+					<li>
+						<a href="" class="use_likelist" title="찜매물">
+							<span><img src="./img/찜.png" class="like"><br>찜</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</header>
 	<section class="transparent-section">
 	<div id ="hDiv">

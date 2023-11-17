@@ -66,19 +66,29 @@
 		<h1 id="hh">추천매물</h1>
 		<form action="MainPageCenterServlet" method="post">
 		 <div>
+		 
+	
 <%	
-	String address = (String)session.getAttribute("ADDRESS");
-    RealEstateInfoDAO realEstateInfoDAO = new RealEstateInfoDAO();
-    List<RealEstateInfo> realEstateInfos = realEstateInfoDAO.getMainRealEstateInfos(address);
+	
     
-    for (RealEstateInfo r : realEstateInfos) {
-        String realName = r.getRealEstateName();
-        String realType = r.getRealEstateType();
-        String realCondition = r.getRealEstateCondition();
-        double realArea = r.getRealEstateArea();
-        int realMonthly = r.getRealEstateMonthly();
-        String realAddress = r.getRealEstateAddress();
-       // String realPhotos = r.getRealEstatePhotos();
+	String address = (String)session.getAttribute("ADDRESS");
+    
+    if(session.getAttribute("ADDRESS") != null){
+		
+    	int pageNumber = 1;
+		int pageSize = 2;
+		RealEstateInfoDAO realEstateInfoDAO = new RealEstateInfoDAO();
+		List<RealEstateInfo> realList = realEstateInfoDAO.getMainRealEstate(pageNumber,pageSize);
+    
+	    for (RealEstateInfo r : realList) {
+	        int realId = r.getRealEstateId();
+	    	String realName = r.getRealEstateName();
+	        String realType = r.getRealEstateType();
+	        String realCondition = r.getRealEstateCondition();
+	        double realArea = r.getRealEstateArea();
+	        int realMonthly = r.getRealEstateMonthly();
+	        String realAddress = r.getRealEstateAddress();
+     	  // String realPhotos = r.getRealEstatePhotos();
         
         
         // 매물 정보를 출력하는 코드 작성
@@ -87,31 +97,48 @@
         <div id="mainDiv">
 	        <table border=1>
 	        	<tr>
-	        		<th> <h2><%= realName %></h2></th>
-					<th><p>유형: <%= realType %></p> 
-					<p>상태: <%= realCondition %></p>
-			        <p>면적: <%= realArea %> 제곱미터</p>
-					<p>월세: <%= realMonthly %> 만원</p>
-					<p>주소: <%= realAddress %></p>
-					</th> 
-					<th>
-						<!-- 사진 사진누르면 이동하게-->
-					<img src="img/login.png" id="imageSize">
-					</th>      
-						        
-						       
-						        <% 
-								    }
-								%>
+	        		<th>
+		        		<th> <h2><%= realName %></h2></th>
+						<td><p>유형: <%= realType %></p> 
+						<p>상태: <%= realCondition %></p>
+				        <p>면적: <%= realArea %> 제곱미터</p>
+						<p>월세: <%= realMonthly %> 만원</p>
+						<p>주소: <%= realAddress %></p>
+						</td> 
+						<th>
+						
+						<img src="img/login.png" id="imageSize">
+							
+						</th>      
+						    
+						 <% }
+	    }else{
+		%>	    	
+	    <h1>추천 매물이 없습니다.</h1>
+	    <% }
+	    %>
+	    
+
+								    
+								   
+								    	
+							    
+   					 
+    			
+    				</th>
 				</tr>
 			</table>
+			 				
+						       
 		</div>
 		</div>
+	
 		</form>
 		</div>
 	
 	<footer>
 		<p><a href="Main.jsp">메인으로</a></p><p>전화번호:02-123-4567</p>
+			  
 	</footer>
 	
 <script>

@@ -109,18 +109,12 @@
 			}
 			
 			#prevPage {
-				position: relative;
-				padding: 10px 20px;
-				color: black;
-			    background-color:white;
-				border: none;
-				cursor: pointer;
-				
+			
 			
 			}
 			
 			#nextPage {
-				margin:100px;
+			
 			
 			}
 			
@@ -200,6 +194,9 @@
             
             /*회원가입 페이지*/
             
+            #ADDRESS {
+            margin-left:167px;
+            }
             
             
             #createBody {
@@ -264,9 +261,6 @@
            		margin-left:104px;
            	}
            	
-           	#d5 {
-           		margin-left:120px;
-           	}
            	
            	#d6 {
 	            margin-top: 20px;

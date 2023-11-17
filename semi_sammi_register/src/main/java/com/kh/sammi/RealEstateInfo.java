@@ -10,6 +10,7 @@ public class RealEstateInfo {
 	private String realEstatePhotos;
 	private String realEstateAddress;
 	
+	public RealEstateInfo() {}
 	public RealEstateInfo(int realEstateId,String realEstateName, String realEstateType,
 			String realEstateCondition,double realEstateArea,
 			int realEstateMonthly,String realEstatePhotos,String realEstateAddress) {

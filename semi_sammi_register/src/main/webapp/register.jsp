@@ -72,8 +72,8 @@
 	                <input type="email"placeholder="이메일을 입력하세요." id="EMAIL" name="EMAIL"><br>
 	            </div>
 	            <div id="d5">
-	                <label for="ADDRESS">주소 : </label>
-	                <input type="text" placeholder="주소를 입력하세요." id="ADDRESS" name="ADDRESS" required><br>
+	                <label for="ADDRESS" style="margin-left:120px;">주소 : 서울특별시 강남구</label><br>
+	               	<input type="text" placeholder="동을 입력하세요." id="ADDRESS" name="ADDRESS" required><br>
 	            </div>
 	            <div id="d6">    
 	

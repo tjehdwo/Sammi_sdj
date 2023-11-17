@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+                                                                                                                                                           
 
 
 public class RealEstateInfoDAO {
@@ -20,7 +21,7 @@ public class RealEstateInfoDAO {
 		
 		try {
 			/* realEstate_id
-			 * realEstateName 
+			 * realEstateName s
 			 * realEstateType 
 			 * realEstateCondition 
 			 * realEstateAddress 
@@ -63,19 +64,78 @@ public class RealEstateInfoDAO {
 		}
 		return realEstateInfos;
 	}
-	
-	/*public RealEstateInfo getRealEstateInfo(int realEstateId) {
-		RealEstateInfo realEstateInfo = null;
-		
+	public int getTotalRealEstateInfoCount(String realAddress){
+		int totalCount = 0;
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			String sql = "SELECT"
+			String sql = "SELECT COUNT(*) AS total FROM REALESTATEINFO WHERE REALESTATE_ADDRESS = ?";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, realAddress);
+			ResultSet rs = ps.executeQuery();
+			
+			
+			if(rs.next()) {
+				totalCount = rs.getInt("total");
+			}
+		
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		return totalCount;
+	}
+	
+	public List<RealEstateInfo> getMainRealEstate(int pageNumber, int pageSize) {
 		
-		return realEstateInfo;
-	}*/
+		List<RealEstateInfo> realList = new ArrayList<>();
+		int start = PaginationUtil.paginationStart(pageNumber, pageSize);
+        int end = PaginationUtil.paginationEnd(pageNumber, pageSize);
+        
+        try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			try {
+				Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+				String sql = "SELECT * FROM (SELECT r.*, ROWNUM AS rnum FROM (SELECT * FROM REALESTATEINFO WHERE ORDER BY REALESTATE_ID) r WHERE ROWNUM <= ?) WHERE rnum >= ?";
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setInt(1, end);
+		        ps.setInt(2, start);
+		        ResultSet rs = ps.executeQuery();
+		        
+		        
+		        while(rs.next()) {
+		        	RealEstateInfo realEstateInfo = new RealEstateInfo();
+		        	realEstateInfo.setRealEstateId(rs.getInt("REALESTATE_ID"));
+		        	realEstateInfo.setRealEstateName(rs.getString("REALESTATE_NAME"));
+		        	realEstateInfo.setRealEstateType(rs.getString("REALESTATE_TYPE"));
+		        	realEstateInfo.setRealEstateCondition(rs.getString("REALESTATE_CONDITION"));
+		        	realEstateInfo.setRealEstateArea(rs.getDouble("REALESTATE_AREA"));
+		        	realEstateInfo.setRealEstateMonthly(rs.getInt("REALESTATE_MONTHLY"));
+		        	realEstateInfo.setRealEstateAddress(rs.getString("REALESTATE_ADDRESS"));
+		        	realList.add(realEstateInfo);
+		        	
+		        
+		        
+		        }
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return realList;
+	    
+
+	}
 }
+

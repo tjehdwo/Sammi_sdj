@@ -103,7 +103,7 @@ public class RealEstateInfoDAO {
 			Class.forName("oracle.jdbc.OracleDriver");
 			try {
 				Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String sql = "SELECT * FROM (SELECT r.*, ROWNUM AS rnum FROM (SELECT * FROM REALESTATEINFO WHERE ORDER BY REALESTATE_ID) r WHERE ROWNUM <= ?) WHERE rnum >= ?";
+				String sql = "SELECT * FROM (SELECT r.*, ROWNUM AS rnum FROM (SELECT * FROM REALESTATEINFO ORDER BY REALESTATE_ID) r WHERE ROWNUM <= ?) WHERE rnum >= ?";
 				PreparedStatement ps = conn.prepareStatement(sql);
 				ps.setInt(1, end);
 		        ps.setInt(2, start);

@@ -72,12 +72,13 @@
 	
     
 	String address = (String)session.getAttribute("ADDRESS");
-    
+	RealEstateInfoDAO realEstateInfoDAO = new RealEstateInfoDAO();
+	int pageNumber = 1;
+	int pageSize = 2;
     if(session.getAttribute("ADDRESS") != null){
 		
-    	int pageNumber = 1;
-		int pageSize = 2;
-		RealEstateInfoDAO realEstateInfoDAO = new RealEstateInfoDAO();
+    	
+		
 		List<RealEstateInfo> realList = realEstateInfoDAO.getMainRealEstate(pageNumber,pageSize);
     
 	    for (RealEstateInfo r : realList) {
@@ -132,7 +133,20 @@
 						       
 		</div>
 		</div>
+		<%
+		//1. 페이지네이션 링크를 생성해줄것이고, 링크는 page 값에 따라서 다르게 보일 것
+		String test = (String)session.getAttribute("ADDRESS");
+		int totalEventList = realEstateInfoDAO.getTotalRealEstateInfoCount(test); //전체 제품 가져오기
+		int totalPages = (int) Math.ceil((double) totalEventList / pageSize);
+
+		for (int i = 1; i <= totalPages; i++) {
+		%>
+		
+		<a href="<%=request.getRequestURI()%>?page=<%=i%>"><%=i%></a>
 	
+		<%
+		}
+		%>
 		</form>
 		</div>
 	
